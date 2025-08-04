@@ -5,8 +5,8 @@ import joblib
 
 # Load model and scaler
 def predict(data):
-    clf = joblib.load("rf_model.sav")  # Your saved EEG model
-    scaler = joblib.load("scaler.sav")  # Your saved scaler
+    clf = joblib.load("EEG_RF_Model.pkl")
+    scaler = joblib.load("EEG_Scaler.pkl")
     data_scaled = scaler.transform(data)  # Scale inputs
     return clf.predict(data_scaled)
 
@@ -34,3 +34,4 @@ if st.button("Predict Emotion"):
     result = predict(np.array([input_values]))
     label = "Positive" if result[0] == 1 else "Negative"
     st.success(f"Prediction: {label}")
+
