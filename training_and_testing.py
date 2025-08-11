@@ -77,7 +77,7 @@ df["temporal_var"] = df[temporal].var(axis=1)
 df["parietal_var"] = df[parietal].var(axis=1)
 df["occipital_var"] = df[occipital].var(axis=1)
 
-
+# Combine EEG + variance features + extra ratings
 final_features = features + [
     "frontal_var",
     "fronto_central_var",
@@ -146,3 +146,32 @@ cv_scores = cross_val_score(pipeline, X, y, cv=kf, scoring='accuracy', n_jobs=-1
 print("Cross-Validation Accuracies:", cv_scores)
 print("Mean CV Accuracy:", np.mean(cv_scores))
 print("Standard Deviation:", np.std(cv_scores))
+
+import joblib
+
+# Save the model
+joblib.dump(rf, '/content/drive/My Drive/EEG_RF_Model.pkl')
+
+# Save the scaler as well
+joblib.dump(scaler, '/content/drive/My Drive/EEG_Scaler.pkl')
+
+import matplotlib.pyplot as plt
+
+# Count samples per emotion
+emotion_counts = combined_df["Emotion"].value_counts()
+
+# Plot
+plt.figure(figsize=(8, 6))
+bars = plt.bar(emotion_counts.index, emotion_counts.values,
+               color=["skyblue", "lightgreen", "orange", "red"])  # Adjust colors if needed
+
+# Add labels on top of bars
+for bar, count in zip(bars, emotion_counts.values):
+    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 2000,
+             f"{count:,}", ha='center', fontsize=12)
+
+plt.title("Emotion Class Distribution")
+plt.ylabel("Number of Samples")
+plt.xlabel("Emotion")
+plt.tight_layout()
+plt.show()
