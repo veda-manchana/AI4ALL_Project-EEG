@@ -1,5 +1,7 @@
 # Emotional Recognition in Gaming Using EEG Signals
 
+[![View on GitHub](https://img.shields.io/badge/View%20on-GitHub-black?logo=github)](https://github.com/veda-manchana/AI4ALL_Project-EEG)
+
 ## Problem Statement <!--- do not change this line -->
 
 *Video games elicit complex emotional responses. Understanding these responses can enhance user experience, enable adaptive game design, and support mental health applications.*
