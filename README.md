@@ -57,5 +57,5 @@ We tested **SVM**, **Logistic Regression**, and **Random Forest**, with Random F
 ## Authors <!--- do not change this line -->
 
 *This project was completed in collaboration with:*
-- *Veda Manchana ([john.doe@example.com](mailto:manchana.veda@gmail.com))*
-- *Marzia Tahsin ([jane.smith@example.com](mailto:marziat1@umbc.edu))*
+- *Veda Manchana ([manchana.veda@gmail.com](mailto:manchana.veda@gmail.com))*
+- *Marzia Tahsin ([marziat1@umbc.edu](mailto:marziat1@umbc.edu))*
